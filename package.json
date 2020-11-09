@@ -1,0 +1,19 @@
+{
+  "name": "ci-version",
+  "version": "2.0.0",
+  "description": "ci-version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoodSpeed-HL/ci-version.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GoodSpeed-HL/ci-version/issues"
+  },
+  "homepage": "https://github.com/GoodSpeed-HL/ci-version#readme"
+}
