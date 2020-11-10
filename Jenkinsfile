@@ -5,7 +5,7 @@ pipeline {
         stage('pre') {
             steps {
                 script {
-                    env.currentTag = sh(returnStdout: true, script: "git describe --tags --abbrev=0").trim()
+                    env.currentTag = sh(returnStdout: true, script: "git describe --tags --abbrev=0").getAt(1..phrase.length() - 1)
                 }
                 echo "${currentTag}"
             }
