@@ -16,16 +16,16 @@ pipeline {
         }
         stage('build'){
             steps {
-                sh 'docker build -t helloworld:${currentTag} .'
-                sh 'docker tag helloworld:${currentTag} registry.digitalocean.com/bitcoco/helloworld:${currentTag}'
-                sh 'docker push registry.digitalocean.com/bitcoco/helloworld:${currentTag}'
+                sh 'docker build -t ${service}:${currentTag} .'
+                sh 'docker tag ${service}:${currentTag} registry.digitalocean.com/bitcoco/${service}:${currentTag}'
+                sh 'docker push registry.digitalocean.com/bitcoco/${service}:${currentTag}'
             }
         }
 
         stage('post'){
             steps {
                 script {
-                    sh 'curl https://bot:11848b87437decb6381ed3ec840492b706@pipelines.bitcoco.ca/job/short-test/buildWithParameters?service="${service}"&version="${currentTag}"'
+                    sh 'curl https://bot:11848b87437decb6381ed3ec840492b706@pipelines.bitcoco.ca/job/short-test/buildWithParameters?service=${service}&version=${currentTag}'
                 }
                 
             }
