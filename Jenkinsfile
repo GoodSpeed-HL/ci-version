@@ -23,8 +23,11 @@ pipeline {
         }
 
         stage('post'){
-             steps {
-                sh 'curl https://bot:11848b87437decb6381ed3ec840492b706@pipelines.bitcoco.ca/job/short-test/buildWithParameters?token=Fa89vNYgsjZF7k4L&service=${service}&version=${currentTag}'
+            steps {
+                script {
+                    sh 'curl https://bot:11848b87437decb6381ed3ec840492b706@pipelines.bitcoco.ca/job/short-test/buildWithParameters?token=Fa89vNYgsjZF7k4L&service=${service}&version=${currentTag}'
+                }
+                
             }
             
         }
