@@ -25,11 +25,9 @@ pipeline {
         stage('post'){
             steps {
                 script {
-                    sh 'curl https://bot:11848b87437decb6381ed3ec840492b706@pipelines.bitcoco.ca/job/short-test/buildWithParameters?service=${service}&version=${currentTag}'
+                    sh 'curl https://pipelines.bitcoco.ca/job/short-test/buildWithParameters --user bot:11848b87437decb6381ed3ec840492b706 --data service=${service} --data version=${currentTag}'
                 }
-                
             }
-            
         }
     }
 }
